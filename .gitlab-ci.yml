@@ -1,0 +1,14 @@
+debian:
+  image: debian:jessie
+  script:
+  - apt-get update -qyy 1>/dev/null 
+  - apt-get install -qyy curl bc make wget build-essential 1>/dev/null
+  - toolchain='https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabi/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabi.tar.xz'
+  - wget -qP ./ $toolchain && tar -xf ./$(basename $toolchain) -C ./ && rm ./$(basename $toolchain)
+  - export ARCH=arm && export CROSS_COMPILE="./$(basename $toolchain .tar.xz)/bin/arm-linux-gnueabi-"
+  - export KBUILD_BUILD_USER=rezvorck
+  - export KBUILD_BUILD_HOST=home
+  - export CONFIG_DEBUG_SECTION_MISMATCH=y
+  - mkdir ./tools/tools
+  - make -j2 leagoo_m8pro_32_defconfig 1>/dev/null 
+  - make -j2 1>/dev/null && curl -s --upload-file ./arch/arm/boot/zImage-dtb https://transfer.sh/zImage-dtb
