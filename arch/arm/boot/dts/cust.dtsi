@@ -18,9 +18,9 @@
 	status = "okay";
 };
 &touch {
-	interrupt-parent = <&eintc>;
-	interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
-	debounce = <10 0>;
+	interrupt-parent = <0xe>;
+	interrupts = <0xa 0x2>;
+	debounce = <0xa 0x0>;
 	status = "okay";
 };
 &gse_1 {
