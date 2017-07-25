@@ -226,7 +226,7 @@
 };
 &touch {
 	tpd-resolution = <720 1280>;
-	use-tpd-button = <0>;
+	use-tpd-button = <1>;
 	tpd-key-num = <3>;
 	tpd-key-local= <139 172 158 0>;
 	tpd-key-dim-local = <0x64 0x532 0x64 0x28 0x190 0x532 0x64 0x28 0x258 0x532 0x64 0x28 0x0 0x0 0x0 0x0>;
@@ -237,12 +237,12 @@
 	tpd-filter-custom-speed = <0 0 0>;
 	pinctrl-names = "default", "state_eint_as_int", "state_eint_output0", "state_eint_output1",
 		"state_rst_output0", "state_rst_output1";
-	pinctrl-0 = <&CTP_pins_default>;
-	pinctrl-1 = <&CTP_pins_eint_as_int>;
-	pinctrl-2 = <&CTP_pins_eint_output0>;
-	pinctrl-3 = <&CTP_pins_eint_output1>;
-	pinctrl-4 = <&CTP_pins_rst_output0>;
-	pinctrl-5 = <&CTP_pins_rst_output1>;
+	pinctrl-0 = <59>;
+	pinctrl-1 = <60>;
+	pinctrl-2 = <61>;
+	pinctrl-3 = <62>;
+	pinctrl-4 = <63>;
+	pinctrl-5 = <64>;
 	status = "okay";
 };
 &pio {
@@ -592,7 +592,7 @@
 /* mmc end */
 
 /* NFC GPIO standardization */
-&pio {
+/* &pio {
 	nfc_default: mtknfc {
 
 	};
@@ -665,7 +665,7 @@
 	pinctrl-6 = <&nfc_eint_low>;
 	pinctrl-7 = <&nfc_irq_init>;
 	status = "okay";
-};
+}; */
 /* NFC end */
 
 /* USB GPIO Kernal Standardization start */
